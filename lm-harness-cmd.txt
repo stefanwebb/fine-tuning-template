@@ -1,0 +1,28 @@
+lm_eval --model hf \
+    --model_args pretrained=/home/stefanwebb/models/llm/meta_llama3-8b-instruct,load_in_4bit=True,bnb_4bit_quant_type=nf4,bnb_4bit_compute_dtype=bfloat16,bnb_4bit_use_double_quant=True \
+    --tasks hellaswag \
+    --device cuda:0 \
+    --batch_size 4 \
+    --num_fewshot 5
+
+lm_eval --model hf \
+    --model_args pretrained=/home/stefanwebb/models/llm/meta_llama3-8b,load_in_4bit=True,bnb_4bit_quant_type=nf4,bnb_4bit_compute_dtype=bfloat16,bnb_4bit_use_double_quant=True,peft=/home/stefanwebb/code/python/test-qwen2/stefans-debug-llama3-chat-bs-16/checkpoint-3820 \
+    --tasks hellaswag \
+    --device cuda:0 \
+    --batch_size 4 \
+    --num_fewshot 5
+
+lm_eval --model hf \
+    --model_args pretrained=/home/stefanwebb/models/llm/meta_llama3-8b,load_in_4bit=True,bnb_4bit_quant_type=nf4,bnb_4bit_compute_dtype=bfloat16,bnb_4bit_use_double_quant=True,peft=/home/stefanwebb/code/python/test-qwen2/stefans-debug-llama3-chat-fixed/checkpoint- \
+    --tasks hellaswag \
+    --device cuda:0 \
+    --batch_size 4 \
+    --num_fewshot 5
+
+
+lm_eval --model hf \
+    --model_args pretrained=/home/stefanwebb/models/llm/meta_llama3-8b,load_in_4bit=True,bnb_4bit_quant_type=nf4,bnb_4bit_compute_dtype=bfloat16,bnb_4bit_use_double_quant=True,peft=/home/stefanwebb/code/python/test-qwen2/stefans-debug-llama3-chat-bs-16-eval/checkpoint-6876 \
+    --tasks hellaswag \
+    --device cuda:0 \
+    --batch_size 4 \
+    --num_fewshot 5
